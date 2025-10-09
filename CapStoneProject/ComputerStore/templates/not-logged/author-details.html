@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+    {% block content %}
+
+        <h1>AUTHOR DETAILS</h1>
+
+        <p>{{author.first_name}}</p>
+
+        {% if author.is_best_seller %}
+            <p>Author is also a best Seller!</p>
+        {% else %}
+            <p>Not a best seller</p>
+        {% endif %}
+
+        <a href="/authors/{{author.author_id}}/edit">edit author</a>
+
+        
+        <form action="/authors/{{author.author_id}}/delete" method='post'>
+            {% csrf_token %}
+            <button>Delete Author</button>
+        </form>
+
+    {% endblock content %}
+
+   

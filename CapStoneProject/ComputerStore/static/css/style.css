@@ -1,0 +1,48 @@
+.python {
+    color: blue;
+}
+
+.js {
+    color: yellow;
+}
+
+#page-border {
+    width: 98%;
+    height: 100%;
+    border: solid;
+    border-color: rgb(0, 0, 0);
+    margin: 5px 5px;
+    border-radius: 7px;
+    border-width: 3px;
+}
+
+h1 {
+    color: white;
+    text-align:center;
+}
+
+h2 {
+    color: white;
+}
+
+p {
+    color: white;
+    margin: 10px 10px;
+    text-align: justify;
+}
+
+#nav-links {
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 0 10px 0;
+    text-size-adjust: 20px;
+    font-size: 20px;
+}
+
+a {
+    padding: 0 5px;
+}
+
+ul {
+    color: white;
+}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Book List</title>
+
+{% endblock head %}
+
+{% block content %}
+
+    <h1>All Books</h1>
+
+
+    {% for book in books %}
+        <p>Title: {{book.title}}</p>
+        <p>Published: {{book.published_year}}</p>
+        <p>Author: {{book.author.first_name}}</p>
+        <a href="{% url 'book_update' book.id%}">Edit Book</a>
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Create a new author</h1>
+
+    {% comment %} anytime we are posting new data or changing data we need the form element {% endcomment %}
+    <form  method="post">
+        {% csrf_token %}
+        {% comment %} {{form.as_p}} {% endcomment %}
+
+        {% for field in form %}
+            {{field.label_tag}}
+            {{field}}
+            {% for error in field.errors %}
+                <div class='field-error'>{{error}}</div>
+            {% endfor %}
+        
+        {% endfor %}
+        <button type='submit'>Create</button>
+    </form>
+
+    {{student_name}}
+{% endblock content %}
+
+

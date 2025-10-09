@@ -1,0 +1,16 @@
+{% extends "base.html"%}
+
+
+    {% block content %}
+     <h1>All Authors</h1>
+
+        <ol>
+            {% for author in all_authors %}
+                <li><a href="/authors/{{author.author_id}}/"> {{author.first_name}}</a></li>
+            {% endfor %}
+
+        </ol>
+
+    {% endblock content %}
+
+   

@@ -1,0 +1,14 @@
+*Idea: Computer Store
+
+-User Story:
+1) A computer store that sells parts
+
+2) A computer store that can provide repairs
+
+3) A computer store which can sent a "home-repair" and have technician when needed
+
+4) As user, I can order parts / get home-repair / get to request a basic customer-help
+
+5) As premium user, I can order parts with free delivery / get "home-repair" free fee / get discounts / get to sent fast customer-help request
+
+6) As worker, I can edit, add and remove parts also can read, reply, on-hold customers-help 
