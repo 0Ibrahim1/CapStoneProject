@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 # auth imports
-from django.contrib.auth.forms import UserCreationForm #form to create  new user
-from django.contrib.auth.models import User # built in User model
+from django.contrib.auth.forms import UserCreationForm 
+from django.contrib.auth.models import Role # built in User model
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 def homepage (request):
