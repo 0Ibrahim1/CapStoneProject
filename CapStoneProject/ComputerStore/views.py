@@ -7,8 +7,6 @@ from .forms import UsersForm, ProductForm,SupportForm
 from django.contrib.auth.forms import UserCreationForm 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-
-
 def homepage(request):
     return render(request, 'homepage.html')
 
@@ -52,7 +50,7 @@ class SignUpView(CreateView):
 
 # CRUD for Support
 
-class SupportistView(ListView):
+class SupportListView(ListView):
     model= Support
     template_name='support/suport-list.html'
     context_object_name = 'support'

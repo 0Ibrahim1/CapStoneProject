@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
 {% block head %}
-<title>Book List</title>
+<title>SupportTicket</title>
 
 {% endblock head %}
 
 {% block content %}
 
-    <h1>All Books</h1>
+    <h1>All Supports</h1>
 
 
-    {% for book in books %}
-        <p>Title: {{book.title}}</p>
-        <p>Published: {{book.published_year}}</p>
-        <p>Author: {{book.author.first_name}}</p>
-        <a href="{% url 'book_update' book.id%}">Edit Book</a>
+    {% for support in supports %}
+        <p>Title: {{support.title}}</p>
+        <p>Decription: {{support.description}}</p>
+        <p>User: {{support.users_user_name}}</p>
+        <a href="{% url 'support_update' support.support_id%}">Edit support</a>
     {% endfor %}
 
 {% endblock content %}

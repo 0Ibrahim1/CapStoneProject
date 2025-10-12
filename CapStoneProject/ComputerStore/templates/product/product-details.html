@@ -2,22 +2,22 @@
 
     {% block content %}
 
-        <h1>AUTHOR DETAILS</h1>
+        <h1>product DETAILS</h1>
 
-        <p>{{author.first_name}}</p>
+        <p>{{product.first_name}}</p>
 
-        {% if author.is_best_seller %}
-            <p>Author is also a best Seller!</p>
+        {% if product.is_best_seller %}
+            <p>product is also a best Seller!</p>
         {% else %}
             <p>Not a best seller</p>
         {% endif %}
 
-        <a href="/authors/{{author.author_id}}/edit">edit author</a>
+        <a href="/products/{{product.product_id}}/edit">edit product</a>
 
         
-        <form action="/authors/{{author.author_id}}/delete" method='post'>
+        <form action="/products/{{product.product_id}}/delete" method='post'>
             {% csrf_token %}
-            <button>Delete Author</button>
+            <button>Delete product</button>
         </form>
 
     {% endblock content %}

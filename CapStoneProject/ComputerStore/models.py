@@ -7,39 +7,39 @@ class Users (AbstractUser):
     SUPERUSER = "super_user","super_user"
     STAFF = "staff","staff"
     MANAGER = "manager", "manager"
-  role = models.CharField(max_length=30, choices=Roles.choices, default=Roles.BASICUSER)
-  logged = models.BooleanField(null=False, default=False)
-  user_id= models.IntegerField(null=False, unique=True)
-  username= models.CharField(max_length=30,primary_key=True, unique=True)
-  password= models.CharField(max_length=255)
-  premission_level= models.CharField(null=False, default= "basic_user")
+  logged_in = models.BooleanField(null=False, default=False)
+  user_id= models.IntegerField(null=False, unique=True, default=0)
+  user_names= models.CharField(max_length=30, primary_key=True, unique=True)
+  premission_level = models.CharField(null=False, max_length=30, choices=Roles.choices, default=Roles.BASICUSER)
+  password= models.CharField(max_length=255, null=False)
   cart= models.TextField 
-  created_at= models.TimeField(null=False)
+  created_at= models.TextField(null=False)
   def __str__(self):
-    return self.username
+    return self.user_names
 
 class Product (models.Model):
-  logged = models.ForeignKey(Users, on_delete=models.SET_NULL, related_name='logged', null=True)
-  user_id= models.ForeignKey(Users, on_delete=models.SET_NULL, related_name='user_id', null=True)
-  username= models.ForeignKey(Users, on_delete=models.SET_NULL, related_name='username', null=True)
-  premission_level= models.ForeignKey(Users, on_delete=models.SET_NULL, related_name='premission_level', null=True)
+  users_logged_in = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='logged_in',)
+  users_user_id= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='user_id')
+  users_user_names= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='user_names')
+  users_premission_level= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='premission_level')
   product_id= models.IntegerField(unique=True, null=False) 
   product_name= models.CharField(primary_key=True)
-  description= models.TextField 
+  description= models.TextField ()
   status = models.CharField(null=False, default= "in Stock")
-  created_at= models.TimeField(null=False)
+  created_at= models.CharField(null=False, default='n/a')
   def __str__(self):
-    return self.user_id
+    return self.users_user_id
 
 class Support (models.Model):
-  logged = models.ForeignKey(Users, on_delete=models.SET_NULL, related_name='logged', null=True)
-  user_id= models.ForeignKey(Users, on_delete=models.SET_NULL, related_name='user_id', null=True)
-  username= models.ForeignKey(Users, on_delete=models.SET_NULL, related_name='username', null=True)
-  premission_level= models.ForeignKey(Users, on_delete=models.SET_NULL, related_name='premission_level', null=True)
+  users_logged_in = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='logged_in')
+  users_user_id= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='user_id')
+  users_user_names= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='user_names')
+  users_premission_level= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='premission_level')
+  support_id = models.TextField(null=False)
   title=models.CharField(max_length=100,null=False)
-  description= models.TextField
-  created_at= models.TimeField(null=False)
+  description= models.TextField()
+  created_at= models.TextField(null=False)
   def __str__(self):
-    return self.username
+    return self.users_user_names
 
 

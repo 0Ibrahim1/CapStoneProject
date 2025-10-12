@@ -85,7 +85,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = "computerstore.Users"
+AUTH_USER_MODEL = "ComputerStore.Users"
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

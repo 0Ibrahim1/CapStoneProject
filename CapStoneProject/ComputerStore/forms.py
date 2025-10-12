@@ -5,9 +5,9 @@ from .models import Users, Product, Support
 class UsersForm(forms.ModelForm):
     class Meta:
         model = Users
-        fields = ['username', 'password']
+        fields = ['user_names', 'password','created_at']
         error_messages = {
-            "username": {
+            "user_names": {
                 # "max_length": "Keep it simple."
             }
         }
@@ -15,9 +15,9 @@ class UsersForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['user_id','product_id','product_name','description','status','created_at']
+        fields = ['users_user_names','product_id','product_name','description','status','created_at']
 
 class SupportForm(forms.ModelForm):
     class Meta:
         model = Support
-        fields = ['username','title','description','created_at']
+        fields = ['users_user_names','title','description','created_at']
