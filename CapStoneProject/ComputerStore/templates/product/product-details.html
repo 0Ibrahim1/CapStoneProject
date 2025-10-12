@@ -2,14 +2,14 @@
 
     {% block content %}
 
-        <h1>product DETAILS</h1>
+        <h1>Products DETAILS</h1>
 
         <p>{{product.first_name}}</p>
 
         {% if product.is_best_seller %}
             <p>product is also a best Seller!</p>
         {% else %}
-            <p>Not a best seller</p>
+            <p></p>
         {% endif %}
 
         <a href="/products/{{product.product_id}}/edit">edit product</a>
@@ -17,7 +17,7 @@
         
         <form action="/products/{{product.product_id}}/delete" method='post'>
             {% csrf_token %}
-            <button>Delete product</button>
+            <button>Delete Product</button>
         </form>
 
     {% endblock content %}

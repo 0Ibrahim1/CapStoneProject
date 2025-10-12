@@ -11,7 +11,7 @@ class Users (AbstractUser):
   user_id= models.IntegerField(null=False, unique=True, default=0)
   user_names= models.CharField(max_length=30, primary_key=True, unique=True)
   premission_level = models.CharField(null=False, max_length=30, choices=Roles.choices, default=Roles.BASICUSER)
-  password= models.CharField(max_length=255, null=False)
+  password= models.CharField(max_length=150, null=False)
   cart= models.TextField 
   created_at= models.TextField(null=False)
   def __str__(self):
