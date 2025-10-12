@@ -1,10 +1,17 @@
 {% extends "base.html" %}
-{% load static %}
 
-{%block header%}
-    <link rel="stylesheet" href="{%static 'css/style.css'%}">
-    <title>ComputerStore</title>
-{%endblock%}
-{%block content%}
-    <h1>Welcome</h1>
-{%endblock%}
+
+    {% block content %}
+        <h1>Welcome to our library application</h1>
+
+        <ol>
+
+        {% for author in authors %}
+            <li>{{author}}</li>
+        {% endfor%}
+        </ol>
+
+    {% endblock content %}
+
+
+  

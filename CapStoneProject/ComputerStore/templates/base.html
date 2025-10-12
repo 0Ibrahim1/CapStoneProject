@@ -1,21 +1,51 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   {%block header%}
+    {% block head %}
+    {% endblock head %}
+    <link rel="stylesheet" href="{% static 'css/base.css'%}">
+    <style>
 
-   {%endblock%}
+    </style>
 </head>
-<body style="background-color: rgba(131, 131, 131, 1)";>
-    <nav id='nav-links'>    
-        <a href="/">ComputerStore</a>
-        <a href="/login">login</a>
-        <a href="/support">Support</a>
-    </nav>
-    <p id='page-border'>
-</body>
-    {% block content %}
+<body>
+    <div>
+        <a href="{% url 'homepage'%}">Homepage</a>
+        <a href="{% url 'author_list'%}">Authors</a>
 
-    {% endblock %}
+
+        {% comment %} Only if I'm logged in will it show what is below {% endcomment %}
+        {% if user.is_authenticated %}
+                <a href="{% url 'author_create'%}">Create Author</a>
+                <form method='post' action="{% url 'logout'%}" id='logout-form'>
+                    {% csrf_token %}
+                    <button>Logout</button>
+                </form>
+                <a href="{% url 'book_list'%}">Books</a> 
+                <a href="{% url 'book_create'%}">Create Book</a>  |
+                <span>Welcome {{user.username}}</span>
+
+
+
+        {% else %}
+            <a href="{% url 'login'%}">Login</a>
+            <a href="{% url 'signup'%}">Signup</a>
+        {% endif %}
+
+
+    </div>
+
+
+    {% if messages %}
+        {% for message in messages %}
+            <li class='{{message.tags}}'>{{message}}</li>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}
+    {% endblock content %}
+</body>
 </html>
