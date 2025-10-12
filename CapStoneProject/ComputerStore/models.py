@@ -18,28 +18,28 @@ class Users (AbstractUser):
     return self.user_names
 
 class Product (models.Model):
-  users_logged_in = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='logged_in',)
-  users_user_id= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='user_id')
-  users_user_names= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='user_names')
-  users_premission_level= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='premission_level')
+  logged_in = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='product_logged_in')
+  user_id= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='product_user_id')
+  user_names= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='product_user_names')
+  premission_level= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='product_premission_level')
   product_id= models.IntegerField(unique=True, null=False) 
   product_name= models.CharField(primary_key=True)
   description= models.TextField ()
   status = models.CharField(null=False, default= "in Stock")
-  created_at= models.CharField(null=False, default='n/a')
+  created_at= models.TextField(null=False)
   def __str__(self):
-    return self.users_user_id
+    return self.product_id
 
 class Support (models.Model):
-  users_logged_in = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='logged_in')
-  users_user_id= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='user_id')
-  users_user_names= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='user_names')
-  users_premission_level= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='premission_level')
+  logged_in = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='support_logged_in')
+  user_id= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='support_user_id')
+  user_names= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='support_user_names')
+  premission_level= models.ForeignKey(Users, on_delete=models.CASCADE, related_name='support_premission_level')
   support_id = models.TextField(null=False)
   title=models.CharField(max_length=100,null=False)
   description= models.TextField()
   created_at= models.TextField(null=False)
   def __str__(self):
-    return self.users_user_names
+    return self.title
 
 

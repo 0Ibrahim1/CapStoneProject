@@ -15,9 +15,9 @@ class UsersForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['users_user_names','product_id','product_name','description','status','created_at']
+        fields = ['user_names','product_id','product_name','description','status','created_at']
 
 class SupportForm(forms.ModelForm):
     class Meta:
         model = Support
-        fields = ['users_user_names','title','description','created_at']
+        fields = ['user_names','title','description','created_at']
