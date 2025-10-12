@@ -5,16 +5,12 @@ from .models import Product, Users, Support
 from .forms import UsersForm, ProductForm,SupportForm
 # auth imports
 from django.contrib.auth.forms import UserCreationForm 
-from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
 def homepage(request):
     return render(request, 'homepage.html')
-
-class CustomUser(AbstractUser):
-    pass
 
 # CRUD for Prodcut
 class ProductListView(LoginRequiredMixin, ListView):
@@ -81,4 +77,4 @@ class SupportUpdateView(UpdateView):
 
 class SupportDeleteView(DeleteView):
     model = Support
-    success_url = reverse_lazy('support_list')
+    success_url = reverse_lazy('support_delete')
