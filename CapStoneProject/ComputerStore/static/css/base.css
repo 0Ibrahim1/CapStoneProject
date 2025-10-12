@@ -1,0 +1,12 @@
+.field-error{
+            color:red
+}
+
+#logout-form{
+    display:inline-block
+}
+
+.success{
+    background-color: rgb(136, 255, 136);
+    color: green;
+}
