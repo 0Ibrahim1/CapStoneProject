@@ -1,16 +1,21 @@
 from django import forms 
 from .models import Users, Product, Support
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
+
+#------------------------------to get Custom user
+Users = get_user_model()
 
 #------------------------------UsersForm
-class UsersForm(forms.ModelForm):
-    class Meta:
+class UsersForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
         model = Users
-        fields = ['user_names', 'password','created_at']
+        fields = ['username', 'password']
         Req = {
-            'user_names':{
+            'username':{
                 'required':True,
                 'error_messages' : {
-                'user_names': "Keep it simple.",
+                'username': "Keep it simple.",
                 }
             }
         }
@@ -19,13 +24,13 @@ class UsersForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['user_names','product_id','product_name','description','status','created_at']
+        fields = ['product_name','description','status']
 
 #------------------------------SupportForm
 class SupportForm(forms.ModelForm):
     class Meta:
         model = Support
-        fields = ['user_names','title','description','created_at']
+        fields = ['title','description']
         error_messages = {
             "title": {
                 # "Recommended title": "Small and To-Point."

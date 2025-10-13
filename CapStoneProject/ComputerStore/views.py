@@ -34,7 +34,7 @@ class ManagerOrStaffAccessMixin(UserPassesTestMixin):
 class ManagerOrStaffOrPremiumAccessMixin(UserPassesTestMixin):
     def test_func(self):
         user = self.request.user
-        # Check if the user is EITHER a manager OR staff OR premiumuser
+        # Check if the user is EITHER a manager OR staff OR premium_user
         is_manager = user.permission_level == 'manager'
         is_staff = user.permission_level =='staff'
         is_premium = user.permission_level == 'premium_user'
