@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from .models import Product, Users, Support
 from .forms import UsersForm, ProductForm,SupportForm
 # auth imports
+from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm 
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
@@ -11,14 +12,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 def homepage(request):
     return render(request, 'homepage.html')
 
-#------------------------------Singup
-class SignUpView(CreateView):
-    model = Users
-    form_class= UserCreationForm
-    success_url = '/auth/login'
-    template_name = 'registration/sign-up.html'
-
 #------------------------------Custom Users
+CustomUser = get_user_model()
 class ManagerRequiredMixin(UserPassesTestMixin):
     def test_func(self):
         return self.request.user.permission_level == 'manager'
@@ -39,6 +34,13 @@ class ManagerOrStaffOrPremiumAccessMixin(UserPassesTestMixin):
         is_staff = user.permission_level =='staff'
         is_premium = user.permission_level == 'premium_user'
         return is_manager or is_staff or is_premium
+    
+#------------------------------Singup
+class SignUpView(CreateView):
+    model = get_user_model()
+    form_class= UsersForm
+    success_url = '/auth/login'
+    template_name = 'registration/sign-up.html'
 
 #------------------------------CRUD for Prodcut
 class ProductListView(ListView):

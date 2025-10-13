@@ -4,13 +4,13 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
 #------------------------------to get Custom user
-Users = get_user_model()
+CustomeUser = get_user_model()
 
 #------------------------------UsersForm
 class UsersForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Users
-        fields = ['username', 'password']
+        fields = ['username']
         Req = {
             'username':{
                 'required':True,

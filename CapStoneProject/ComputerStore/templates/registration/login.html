@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 
-
-{% block head %}
+{%block head%}
+<link rel="stylesheet" href="{%static 'css/style.css'%}">
 <title>Login</title>
-{% endblock head %}
+{%endblock head%}
 
 
 {% block content %}
