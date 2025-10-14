@@ -7,15 +7,10 @@
 
         <h1>Products DETAILS</h1>
 
-        <p>{{product.first_name}}</p>
+        <p>{{product.name}}</p>
 
-        {% if product.is_best_seller %}
-            <p>exampleProduct is also a best Seller!</p>
-        {% else %}
-            <p></p>
-        {% endif %}
 
-        <a href="/products/{{product.product_id}}/edit">edit product</a>
+        <a href="/products/{{product.product_id}}/update">edit product</a>
 
         
         <form action="/products/{{product.product_id}}/delete" method='post'>

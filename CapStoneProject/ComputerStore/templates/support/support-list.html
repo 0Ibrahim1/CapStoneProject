@@ -16,10 +16,12 @@
     <ol>
     {% for support in all_support %}
             <li>
-                <p><strong>User_id:</strong> {{support.user.id}} <br> <strong>User:</strong> {{support.user.username}}</p>
-                <p><strong>SupportTicket_id:</strong> {{support.id}} <br> <strong>Title:</strong> {{support.title}}</p>
+                <p><strong>User ID:</strong> {{support.user_id.id}} <br> <strong>User:</strong> {{support.user_id}}</p>
+                <p><strong>SupportTicket ID:</strong> {{support.id}} <br> <strong>Title:</strong> {{support.title}}</p>
                 <p><strong>Decription:</strong> {{support.description}}</p>
                 <p><strong>Created:</strong> {{support.created_at}}</p>
+                <img src="{{support.uploaded_image}}" alt="Uploaded Image">
+                <p>Uploaded:{{support.uploaded_image}}</p>
             </li>
     {% endfor %}
     <ol>

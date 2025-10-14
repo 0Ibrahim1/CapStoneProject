@@ -59,6 +59,11 @@ class ProductCreateView(LoginRequiredMixin, ManagerOrStaffAccessMixin, CreateVie
     form_class = ProductForm
     template_name = 'product/product-form.html'
     success_url= reverse_lazy('product_create')
+    def form_valid(self, form):
+        # Set the user_id field to the logged-in user
+        form.instance.user_id = self.request.user
+        # Call the parent class's to save the object
+        return super().form_valid(form)
 
 class ProductUpdateView(LoginRequiredMixin, ManagerOrStaffAccessMixin, UpdateView):
     model= Product
@@ -66,6 +71,9 @@ class ProductUpdateView(LoginRequiredMixin, ManagerOrStaffAccessMixin, UpdateVie
     template_name = 'product/product-details.html'
     pk_url_kwarg = 'id'
     success_url = reverse_lazy('product_update')
+    def form_valid(self, form):
+        form.instance.user_id = self.request.user
+        return super().form_valid(form)
 
 class ProductDeleteView(LoginRequiredMixin, ManagerOrStaffAccessMixin, DeleteView):
     model = Product
@@ -86,12 +94,18 @@ class SupportCreateView(LoginRequiredMixin, ManagerOrStaffOrPremiumAccessMixin, 
     template_name = 'Support/support-form.html'
     form_class = SupportForm
     success_url=reverse_lazy('support_create')
+    def form_valid(self, form):
+        form.instance.user_id = self.request.user
+        return super().form_valid(form)
 
 class SupportUpdateView(LoginRequiredMixin, ManagerOrStaffAccessMixin, UpdateView):
     model = Support
     template_name = 'support/support-form.html'
     form_class = SupportForm
     success_url = reverse_lazy('support_update')
+    def form_valid(self, form):
+        form.instance.user_id = self.request.user
+        return super().form_valid(form)
 
 class SupportDeleteView(LoginRequiredMixin, ManagerRequiredMixin, DeleteView):
     model = Support

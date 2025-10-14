@@ -8,16 +8,17 @@
 
     {% block content %}
      <h1>Products</h1>
-
+    <ol>
     {% for product in all_product %}
-        <ol>
             <li>
-                <p>Product ID: {{product.id}} <br> Product Name: {{product.product_name}}</p>
-                <p>Decription: {{product.description}}</p>
+                <p>Image: {{product.product_image}}</p>
+                <img src="{{product.product_image}}" alt="Product Image">
+                <p><strong>Product ID:</strong> {{product.id}} <br> <strong>Product Name</strong> {{product.title}}</p>
+                <p><strong>Decription:</strong> {{product.description}}</p>
+                <p><strong>Created:</strong> {{product.created_at}}</p>
             </li>
-        </ol>
     {% endfor %}
-
+    </ol>
     {% endblock content %}
 
    

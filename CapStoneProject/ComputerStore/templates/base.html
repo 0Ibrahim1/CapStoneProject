@@ -20,7 +20,7 @@
         {% if user.is_authenticated %}
             <a href="{% url 'product_create'%}">Create Product</a>
             <a href="{% url 'support_list'%}">SupportTicket</a> 
-            <a href="{% url 'support_create'%}">Create SupportTicket</a> 
+            <a href="{% url 'support_create'%}">Create SupportTicket</a>
             <span>Welcome {{user.username}}</span>
             
             <form method='post' action="{% url 'logout'%}" id='logout-form'>
