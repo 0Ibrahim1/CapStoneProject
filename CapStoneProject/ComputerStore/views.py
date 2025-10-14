@@ -51,31 +51,31 @@ class ProductListView(ListView):
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'product/product-details.html'
-    context_object_name = 'product'
+    context_object_name = 'product_details'
     pk_url_kwarg = 'id'
 
 class ProductCreateView(LoginRequiredMixin, ManagerOrStaffAccessMixin, CreateView):
     model=Product
     form_class = ProductForm
     template_name = 'product/product-form.html'
-    success_url= reverse_lazy('product_list')
+    success_url= reverse_lazy('product_create')
 
 class ProductUpdateView(LoginRequiredMixin, ManagerOrStaffAccessMixin, UpdateView):
     model= Product
     form_class = ProductForm
-    template_name = 'product/product-form.html'
+    template_name = 'product/product-details.html'
     pk_url_kwarg = 'id'
-    success_url = reverse_lazy('product_list')
+    success_url = reverse_lazy('product_update')
 
 class ProductDeleteView(LoginRequiredMixin, ManagerOrStaffAccessMixin, DeleteView):
     model = Product
-    success_url = reverse_lazy('product_list')
+    success_url = reverse_lazy('product_delete')
 
 #------------------------------CRUD for Support
 class SupportListView(LoginRequiredMixin, ManagerOrStaffAccessMixin, ListView):
     model= Support
-    template_name='support/suport-list.html'
-    context_object_name = 'support'
+    template_name='support/support-list.html'
+    context_object_name = 'all_support'
 
 def support_list(request):
     support = Support.objects.all()
@@ -85,13 +85,13 @@ class SupportCreateView(LoginRequiredMixin, ManagerOrStaffOrPremiumAccessMixin, 
     model = Support
     template_name = 'Support/support-form.html'
     form_class = SupportForm
-    success_url=reverse_lazy('book_list')
+    success_url=reverse_lazy('support_create')
 
 class SupportUpdateView(LoginRequiredMixin, ManagerOrStaffAccessMixin, UpdateView):
     model = Support
     template_name = 'support/support-form.html'
     form_class = SupportForm
-    success_url = reverse_lazy('support_list')
+    success_url = reverse_lazy('support_update')
 
 class SupportDeleteView(LoginRequiredMixin, ManagerRequiredMixin, DeleteView):
     model = Support

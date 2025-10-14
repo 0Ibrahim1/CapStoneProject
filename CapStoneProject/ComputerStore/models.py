@@ -15,6 +15,7 @@ class Users (AbstractUser):
 
 #------------------------------Product model 
 class Product (models.Model):
+  user= models.ForeignKey(Users, on_delete=models.CASCADE, related_name="product_users")
   product_name= models.CharField(max_length=255, null=False, unique=True)
   description= models.TextField ()
   status = models.CharField(null=False, default= "in Stock")
@@ -24,6 +25,7 @@ class Product (models.Model):
 
 #------------------------------Support model
 class Support (models.Model):
+  user = models.ForeignKey(Users, on_delete=models.CASCADE, related_name="support_users")
   title=models.CharField(max_length=150,null=False)
   description= models.TextField()
   created_at= models.DateTimeField(auto_now_add=True)

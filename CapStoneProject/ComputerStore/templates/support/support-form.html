@@ -8,13 +8,21 @@
 
 {% block content %}
 
-    <h1>Create Form</h1>
+    <h1>Create SupportTicket</h1>
 
     <form method='post'>
-        {% csrf_token %}
+         {% csrf_token %}
 
-        {{form.as_p}}
-
+        {% for field in form %}
+            {{field.label_tag}}
+            <br>
+            {{field}}
+            <br>
+            {% for error in field.errors %}
+                <div class='field-error'>{{error}}</div>
+            {% endfor %}
+        
+        {% endfor %}
 
         <button>Create SupportTicket</button>
     </form>

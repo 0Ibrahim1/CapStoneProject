@@ -8,6 +8,7 @@ body {
 
 
 .navbar {
+    border-radius: 3px;
     margin: 1rem;
     display: flex; 
     justify-content:center; 
@@ -83,7 +84,10 @@ body {
     border: 1px solid #f87171;
 }
 
-
 #page-border {
     display: none; 
+}
+
+.center{
+    text-align: center;
 }

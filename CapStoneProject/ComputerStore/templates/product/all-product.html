@@ -7,14 +7,16 @@
 
 
     {% block content %}
-     <h1>All products</h1>
+     <h1>Products</h1>
 
+    {% for product in all_product %}
         <ol>
-            {% for product in all_products %}
-                <li><a href="/product/{{product.product_id}}/"> {{product.first_name}}</a></li>
-            {% endfor %}
-
+            <li>
+                <p>Product ID: {{product.id}} <br> Product Name: {{product.product_name}}</p>
+                <p>Decription: {{product.description}}</p>
+            </li>
         </ol>
+    {% endfor %}
 
     {% endblock content %}
 

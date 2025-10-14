@@ -11,14 +11,17 @@
 
 {% block content %}
 
-    <h1>All Supports</h1>
+    <h1>All SupportTickets</h1>
 
-
-    {% for support in supports %}
-        <p>Title: {{support.title}}</p>
-        <p>Decription: {{support.description}}</p>
-        <p>User: {{support.users_user_name}}</p>
-        <a href="{% url 'support_update' support.support_id%}">Edit support</a>
+    <ol>
+    {% for support in all_support %}
+            <li>
+                <p><strong>User_id:</strong> {{support.user.id}} <br> <strong>User:</strong> {{support.user.username}}</p>
+                <p><strong>SupportTicket_id:</strong> {{support.id}} <br> <strong>Title:</strong> {{support.title}}</p>
+                <p><strong>Decription:</strong> {{support.description}}</p>
+                <p><strong>Created:</strong> {{support.created_at}}</p>
+            </li>
     {% endfor %}
+    <ol>
 
 {% endblock content %}

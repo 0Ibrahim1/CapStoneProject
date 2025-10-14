@@ -33,6 +33,6 @@ class SupportForm(forms.ModelForm):
         fields = ['title','description']
         error_messages = {
             "title": {
-                # "Recommended title": "Small and To-Point."
+                "Recommended title": "Small and To-Point."
             }
         }
