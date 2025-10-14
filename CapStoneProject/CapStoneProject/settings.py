@@ -13,13 +13,12 @@ import os
 from pathlib import Path
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # -------------------------------------image storing
 # uploaded media will be saved
-MEDIA_ROOT = os.path.join(BASE_DIR, 'Uploaded-Images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'Uploaded_Images')
 # accessing media files
 MEDIA_URL = '/product_image/'
 
