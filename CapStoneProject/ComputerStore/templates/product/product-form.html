@@ -2,7 +2,7 @@
 {% load static %}
 {%block head%}
 <link rel="stylesheet" href="{%static 'css/style.css'%}">
-<title>ProductForm</title>
+<title>Product Form</title>
 {%endblock head%}
 {% block content %}
     <h1>Create a new Product</h1>
@@ -12,9 +12,9 @@
 
         {% for field in form %}
             {{field.label_tag}}
-            <br>
+            
             {{field}}
-            <br>
+            
             {% for error in field.errors %}
                 <div class='field-error'>{{error}}</div>
             {% endfor %}
@@ -24,6 +24,4 @@
     </form>
 
     {{product_name}}
-{% endblock content %}
-
-
+{% endblock content %} 

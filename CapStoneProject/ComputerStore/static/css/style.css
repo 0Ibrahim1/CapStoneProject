@@ -1,10 +1,11 @@
-body {
+/* old but working */
+/* body {
     margin: 0;
     padding: 0;
     background-color: #e6e6e6; 
     color: #1f2937; 
     line-height: 1.6;
-}
+} 
 
 
 .navbar {
@@ -90,4 +91,267 @@ body {
 
 .center{
     text-align: center;
+} */
+
+/* --- Global / Body Styling --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* -------------------- NAV BAR STYLES -------------------- */
+.navbar {
+    border-radius: 3px;
+    margin: 0 1rem 1.5rem 1rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.navbar a,
+.navbar button {
+    text-decoration: none;
+    color: #4f46e5;
+    font-weight: 500;
+    transition: color 0.2s, background-color 0.2s;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    background: none;
+    font-size: 1.2rem;
+}
+
+.navbar button {
+    background-color: #ef4444;
+    color: white;
+}
+
+.navbar a:hover {
+    color: #3730a3;
+    background-color: #f3f4f6;
+}
+
+.navbar button:hover {
+    background-color: #dc2626;
+}
+
+.navbar span {
+    font-weight: 600;
+    color: #10b981;
+}
+
+.navbar form#logout-form {
+    /* Reset form width to only take the space it needs */
+    width: auto;
+    max-width: none;
+    /* Ensure the form displays inline with the username span */
+    display: flex; 
+    align-items: center;
+    padding: 0; 
+    margin: 0; 
+    /* The gap between the username span and the button will be handled by the button's margin-left */
+}
+
+/* Fix for any inputs accidentally appearing inside the logout form */
+.navbar form#logout-form input {
+    /* Set inputs inside the logout form to only take necessary space */
+    width: auto; 
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+
+.navbar form#logout-form button {
+    /* Adjust button styling to be compact and next to the username */
+    background-color: #ef4444;
+    color: white;
+    font-size: 1rem; 
+    padding: 0.4rem 0.8rem;
+    width: auto;
+    margin-left: 0.5rem; 
+    margin-top: 0; 
+    margin-bottom: 0;
+}
+
+/* -------------------- CONTENT & FORM STYLES -------------------- */
+
+.content {
+    max-width: 88%;
+    margin: 0.5rem auto;
+    padding: 0 0.5rem;
+}
+
+/* --- Message Styling (.messages) --- */
+.messages {
+    list-style: none;
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 1200px;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+.success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #34d399;
+}
+
+.error,
+.warning {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #f87171;
+}
+
+/* --- Form and Element Styles --- */
+h1 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    /* Standard form container styles - should ONLY apply to main forms, not the tiny logout form */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Keep these width/max-width settings for your main forms */
+    width: 100%; 
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Target all relevant single-line text/password/ inputs to ensure they have 100% width */
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* --- Form Submission Button (Not Navbar Button) --- */
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+
+form button:not(.navbar form button) {
+    /* Ensure only the main form button gets the full-width style */
+    background-color: #28a745; 
+    color: white;
+    padding: 12px 20px;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+
+.button-delete{
+    background-color: red;
+    width: 20%; ;
+}
+
+.center {
+    text-align: center;
+}
+
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; /* Space between product cards (both row and column) */
+}
+
+ol li {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; 
+    display: flex; 
+    flex-direction: column; 
+    transition: transform 0.2s;
+    
+    /* Ensure all grid items fill the available height */
+    height: 100%;
+}
+
+ol li:hover {
+    transform: translateY(-3px); /* lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Image Styling --- */
+ol li img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    object-fit: cover; /* image covers the area without distortion */
+}
+
+/* --- Text Styling inside Product Card --- */
+ol li p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.95em;
+}
+
+ol li strong {
+    color: #333;
+    font-weight: 600;
 }

@@ -52,13 +52,13 @@ class ProductDetailView(DetailView):
     model = Product
     template_name = 'product/product-details.html'
     context_object_name = 'product_details'
-    pk_url_kwarg = 'id'
+    pk_url_kwarg = 'pk'
 
 class ProductCreateView(LoginRequiredMixin, ManagerOrStaffAccessMixin, CreateView):
     model=Product
     form_class = ProductForm
     template_name = 'product/product-form.html'
-    success_url= reverse_lazy('product_create')
+    success_url= reverse_lazy('product_list')
     def form_valid(self, form):
         # Set the user_id field to the logged-in user
         form.instance.user_id = self.request.user
@@ -70,14 +70,17 @@ class ProductUpdateView(LoginRequiredMixin, ManagerOrStaffAccessMixin, UpdateVie
     form_class = ProductForm
     template_name = 'product/product-details.html'
     pk_url_kwarg = 'id'
-    success_url = reverse_lazy('product_update')
+    success_url = reverse_lazy('product_list')
     def form_valid(self, form):
         form.instance.user_id = self.request.user
         return super().form_valid(form)
 
 class ProductDeleteView(LoginRequiredMixin, ManagerOrStaffAccessMixin, DeleteView):
     model = Product
-    success_url = reverse_lazy('product_delete')
+    template_name = 'product/product-details.html'
+    pk_url_kwarg = 'id'
+    success_url=reverse_lazy('product_list')
+        
 
 #------------------------------CRUD for Support
 class SupportListView(LoginRequiredMixin, ManagerOrStaffAccessMixin, ListView):
@@ -93,21 +96,15 @@ class SupportCreateView(LoginRequiredMixin, ManagerOrStaffOrPremiumAccessMixin, 
     model = Support
     template_name = 'Support/support-form.html'
     form_class = SupportForm
-    success_url=reverse_lazy('support_create')
-    def form_valid(self, form):
-        form.instance.user_id = self.request.user
-        return super().form_valid(form)
-
-class SupportUpdateView(LoginRequiredMixin, ManagerOrStaffAccessMixin, UpdateView):
-    model = Support
-    template_name = 'support/support-form.html'
-    form_class = SupportForm
-    success_url = reverse_lazy('support_update')
+    success_url=reverse_lazy('support_list')
     def form_valid(self, form):
         form.instance.user_id = self.request.user
         return super().form_valid(form)
 
 class SupportDeleteView(LoginRequiredMixin, ManagerRequiredMixin, DeleteView):
     model = Support
-    success_url = reverse_lazy('support_delete')
+    template_name = 'support/support-details.html'
+    form_class = SupportForm
+    success_url = reverse_lazy('support_list')
+    pk_url_kwarg ='id'
 

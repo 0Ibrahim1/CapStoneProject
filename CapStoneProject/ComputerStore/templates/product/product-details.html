@@ -1,23 +1,51 @@
 {% extends "base.html" %}
+{% load static %}
+
 {%block head%}
 <link rel="stylesheet" href="{%static 'css/style.css'%}">
-<title>ProductDetails</title>
+<title>Update Product Details</title>
 {%endblock head%}
+
     {% block content %}
+<h1>Update Product Details</h1>
 
-        <h1>Products DETAILS</h1>
+<form method="post" action="{% url 'product_update' id=product.id %}">
 
-        <p>{{product.name}}</p>
+    {% csrf_token %}
 
+        <p><strong>Product Name: </strong> {{product.product_name}}<strong> #</strong>{{product.id}}</p>
+        <p><strong>Decription: </strong> {{product.description}}</p>
+        <p><strong>Status: </strong> {{product.status}}</p>
+        <img src="{{product.product_image.resized.url}}" alt="Product Image">
 
-        <a href="/products/{{product.product_id}}/update">edit product</a>
+        <hr>
 
-        
-        <form action="/products/{{product.product_id}}/delete" method='post'>
+    <label for="id_product_name">Product Name:</label>
+    <input type="text" id="id_product_name" name="product_name" value="{{ product.product_name }}">
+    <br>
+    
+
+    <label for="id_description">Description:</label>
+    <textarea id="id_description" name="description">{{ product.description }}</textarea>
+    <br>
+
+    <label for="id_status">Status:</label>
+    <input type="text" id="id_status" name="status" value="{{product.status}}">
+    <br>
+
+    <label for="id_image">Image:</label>
+    <input type="image" id="id_image" name="image" value="{{ product.product_image.resized.url }}">
+    <br>
+    
+    <button type="submit">Save Changes</button>
+</form>
+
+<hr>
+
+<p><strong>Product Name: </strong> {{product.product_name}}<strong> #</strong>{{product.id}}</p>
+            
             {% csrf_token %}
-            <button>Delete Product</button>
-        </form>
+            <button class="button-delete" >Delete Product</button>
+
 
     {% endblock content %}
-
-   

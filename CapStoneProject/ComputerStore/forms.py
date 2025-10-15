@@ -27,7 +27,7 @@ class UsersForm(UserCreationForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['product_name','description','product_image','status']
+        fields = ['product_name','description','status','product_image']
 
 #------------------------------SupportForm
 class SupportForm(forms.ModelForm):
