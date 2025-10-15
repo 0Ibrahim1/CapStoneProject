@@ -39,13 +39,11 @@
     
     <button type="submit">Save Changes</button>
 </form>
-
-<hr>
-
-<p><strong>Product Name: </strong> {{product.product_name}}<strong> #</strong>{{product.id}}</p>
-            
+<br>
+<br>
+<form method="post" action="{% url 'product_delete' id=product.id %}">   
             {% csrf_token %}
-            <button class="button-delete" >Delete Product</button>
+            <button class="button.button-delete" >Delete Product</button>
 
-
+</form>
     {% endblock content %}

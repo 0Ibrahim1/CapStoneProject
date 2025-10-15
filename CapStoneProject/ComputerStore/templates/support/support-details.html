@@ -7,25 +7,18 @@
 {%endblock head%}
 
     {% block content %}
-<h1>Update Support Details</h1>
+<h1>Delete SupportTicket</h1>
 
-<form method="post" action="{% url 'product_delete' id=product.id %}">
-
-    {% csrf_token %}
+<form method="post" action="{% url 'support_delete' id=support.id %}">
 
             <p><strong>User: </strong> {{support.user_id}}<strong> #</strong>{{support.user_id.id}} </p>
             <p><strong>Title: </strong> {{support.title}}<strong> #</strong>{{support.id}}</p>
             <p><strong>Decription:</strong> {{support.description}}</p>
             <p><strong>Created:</strong> {{support.created_at}}</p>
             <img src="{{support.uploaded_image}}" alt="Uploaded Image">
-
-        <hr>
-            <button class="button-delete" >Delete Product</button>
+            {% csrf_token %}
+            <button class="button.button-delete" >Delete Product</button>
 
 </form>
-
-
-
-
 
     {% endblock content %}
