@@ -54,7 +54,7 @@ class Migration(migrations.Migration):
                 ('description', models.TextField()),
                 ('uploaded_image', models.ImageField(blank=True, null=True, upload_to='ComputerStore/Uploaded-images/%Y/%m/%d', verbose_name='Uploaded image')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('user_id', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='support_user', to=settings.ComputerStore.Users)),
+                ('user_id', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='support_user', to='ComputerStore.Users')),
             ],
         ),
         migrations.CreateModel(
@@ -66,7 +66,7 @@ class Migration(migrations.Migration):
                 ('product_image', stdimage.models.StdImageField(blank=True, force_min_size=False, null=True, upload_to='ComputerStore/Product_image/%Y/%m/%d', variations={'resized': {'crop': False, 'height': 480, 'width': 640}}, verbose_name='Product image')),
                 ('status', models.CharField(default='in Stock')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('user_id', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='product_user', to=settings.ComputerStore.Users)),
+                ('user_id', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='product_user', to='ComputerStore.Users')),
             ],
         ),
     ]
