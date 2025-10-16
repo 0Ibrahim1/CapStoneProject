@@ -126,38 +126,38 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-STATIC_URL = 'static/'
-# STATIC_URL = '/static/'
-# STATIC_ROOT = Path(BASE_DIR, 'staticfiles')
+
+STATIC_URL = '/static/'
+STATIC_ROOT = Path(BASE_DIR, 'staticfiles')
 
 
-# MIDDLEWARE+= 'whitenoise.middleware.WhiteNoiseMiddleware',
-# ALLOWED_HOSTS += ['.onrender.com','localhost','127.0.0.1']
-# CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com']
+MIDDLEWARE+= 'whitenoise.middleware.WhiteNoiseMiddleware',
+ALLOWED_HOSTS += ['.onrender.com','localhost','127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com']
 
 
 
 
-# DATABASE_URL = os.getenv("DATABASE_URL")
-# if DATABASE_URL:
-#     DATABASES = {
-#         "default": dj_database_url.parse(
-#             DATABASE_URL,
-#             conn_max_age=600,
-#             ssl_require=not DEBUG
-#         )
-#     }
-# else:
-#     DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.getenv('Capstone-venv'),  # same name as your .env file
-#         'USER': 'postgres',
-#         'PASSWORD': os.getenv('74186'),
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
+DATABASE_URL = os.getenv("DATABASE_URL")
+if DATABASE_URL:
+    DATABASES = {
+        "default": dj_database_url.parse(
+            DATABASE_URL,
+            conn_max_age=600,
+            ssl_require=not DEBUG
+        )
+    }
+else:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('Capstone-venv'),  # same name as your .env file
+        'USER': 'postgres',
+        'PASSWORD': os.getenv('74186'),
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
 
 
 # Default primary key field type
