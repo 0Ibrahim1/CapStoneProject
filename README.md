@@ -17,7 +17,7 @@ Only Staff and Manager can see this (logging-in is needed)
 ![Create Product](https://files.catbox.moe/aobnsx.png)
 
 Only Staff, Manager and Permium_User can see this (logging-in is needed)
-![Create Support] Same as "Create Product"
+- Create Support: Same as "Create Product"
 
 Only Manager can see this (logging-in is needed)
 ![Delete SupportTicket](https://files.catbox.moe/t46ehm.png)
@@ -26,8 +26,8 @@ Only Manager can see this (logging-in is needed)
 [VScode](https://code.visualstudio.com)
 [PostgreSQL](https://www.postgresql.org)
 [Python](https://www.python.org)
-[GA] (https://generalassemb.ly)
-[lab56] (https://www.lab56.me)
+[GA](https://generalassemb.ly)
+[lab56](https://www.lab56.me)
 
 ## Attributions:
 - GA with lab56
