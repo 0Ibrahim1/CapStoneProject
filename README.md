@@ -5,7 +5,7 @@ just a basic computerstore project for course by GA with lab56,
 built it to experment on website/ store making to get better 
 
 ## Images:
-    Everyone can see this (logging-in isnt needed)
+Everyone can see this (logging-in isnt needed)
     ![Product List](https://files.catbox.moe/iaw16j.png)
     ![SignUp](https://files.catbox.moe/4aihed.png)
     ![Login](https://files.catbox.moe/9biahq.png)
