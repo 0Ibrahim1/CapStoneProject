@@ -2,7 +2,7 @@
 
 ## About:
 just a basic computerstore project for course by GA with lab56, 
-built it to experment on website/ store making to get better 
+built it to get better at & experiment on website making and django usage
 
 ## Images:
 Everyone can see this (logging-in isnt needed)

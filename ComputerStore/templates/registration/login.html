@@ -11,11 +11,13 @@
 
     <h1>Login</h1>
     <form method='post'>
+        
         {% csrf_token %}
 
         {{form.as_p}}
 
         <button>Login</button>
+        <p>Dont have an account? Signup now!</p>
     </form>
 
 {% endblock content %}
