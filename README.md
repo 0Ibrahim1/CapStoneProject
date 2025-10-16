@@ -11,16 +11,16 @@ Everyone can see this (logging-in isnt needed)
 ![Login](https://files.catbox.moe/9biahq.png)
 
 Only Staff and Manager can see this (logging-in is needed)
-    ![Support Ticket List](https://files.catbox.moe/5e6ocs.png)
-    ![Editing Product](https://files.catbox.moe/royj6x.png)
-    ![Update Product](https://files.catbox.moe/royj6x.png)
-    ![Create Product](https://files.catbox.moe/aobnsx.png)
+![Support Ticket List](https://files.catbox.moe/5e6ocs.png)
+![Editing Product](https://files.catbox.moe/royj6x.png)
+![Update Product](https://files.catbox.moe/royj6x.png)
+![Create Product](https://files.catbox.moe/aobnsx.png)
 
 Only Staff, Manager and Permium_User can see this (logging-in is needed)
-    ![Create Support] Same as "Create Product"
+![Create Support] Same as "Create Product"
 
 Only Manager can see this (logging-in is needed)
-    ![Delete SupportTicket](https://files.catbox.moe/t46ehm.png)
+![Delete SupportTicket](https://files.catbox.moe/t46ehm.png)
 
 ## Links:
 [VScode](https://code.visualstudio.com)
